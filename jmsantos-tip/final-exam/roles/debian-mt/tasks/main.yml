@@ -1,0 +1,12 @@
+---
+# tasks file for debian-mt
+- name: Installing Prometheus
+  apt:
+    name: prometheus
+    state: latest
+    update_cache: yes
+
+- name: Starting Prometheus
+  service:
+    name: prometheus
+    state: started

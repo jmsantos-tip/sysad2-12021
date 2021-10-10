@@ -1,0 +1,56 @@
+---
+- name: Clonng of Prelim Exam on CentOS
+  hosts: 
+   - centos 
+  vars_files:
+   - config.yaml
+  roles:
+   - centos-gitclone
+
+- name: Installation of Enterprise Service on CentOS
+  hosts: 
+   - centos
+  vars_files:
+   - config.yaml
+  roles:
+   - centos-es
+
+- name: Installation of Monitoring Tool on CentOS
+  hosts: 
+   - centos
+  vars_files:
+   - config.yaml
+  roles:
+   - centos-mt
+
+- name: Cloning of Prelim Exam on Debian
+  hosts:
+   - debian
+  vars_files:
+   - config.yaml
+  roles:
+   - debian-gitclone
+
+- name: Installation of Enterprise Service on Debian
+  hosts:
+   - debian
+  vars_files:
+   - config.yaml
+  roles:
+   - debian-es
+
+- name: Installation of Monitoring Tool on Debian
+  hosts:
+   - debian
+  vars_files:
+   - config.yaml
+  roles:
+   - debian-mt
+
+- name: MOTD on CentOS and Debian
+  hosts:
+   - all
+  vars_files:
+   - config.yaml
+  roles:
+   - motd
